@@ -1,5 +1,12 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { GeneroEnum } from './genero.enum';
+import { NacionalidadeEntity } from 'src/nacionalidade/nacionalidade.entity';
 
 @Entity({ name: 'autores' })
 export class AutorEntity {
@@ -19,4 +26,16 @@ export class AutorEntity {
     nullable: true,
   })
   genero: GeneroEnum;
+
+  @ManyToOne(
+    () => NacionalidadeEntity,
+    (nacionalidade) => nacionalidade.autores,
+    { eager: true },
+  )
+  @JoinColumn({
+    name: 'nacionalidade_id',
+    foreignKeyConstraintName: 'nacionalidade_fk',
+    referencedColumnName: 'id',
+  })
+  nacionalidade: NacionalidadeEntity;
 }
