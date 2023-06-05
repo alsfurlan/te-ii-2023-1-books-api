@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { AutorEntity } from './autor.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -18,7 +22,9 @@ export class AutorService {
   async findById(id: string): Promise<AutorEntity> {
     const findOne = await this.autorRepository.findOne({ where: { id } });
     if (findOne == null) {
-      throw new NotFoundException(`Autor não encontrado com o identificador ${id}`);
+      throw new NotFoundException(
+        `Autor não encontrado com o identificador ${id}`,
+      );
     }
     return findOne;
   }
@@ -30,12 +36,22 @@ export class AutorService {
   }
 
   async create(dto: AutorDto) {
+    this.validate(dto);
     const newAutor = this.autorRepository.create(dto);
     return this.autorRepository.save(newAutor);
   }
 
-  async update({ id, ...dto }: AutorDto) {
-    await this.findById(id);
-    return this.autorRepository.save({ id, ...dto });
+  async update(dto: AutorDto) {
+    await this.findById(dto.id);
+    this.validate(dto);
+    return this.autorRepository.save(dto);
+  }
+
+  validate(dto: AutorDto) {
+    if (new Date().getTime() < new Date(dto.dataNascimento).getTime()) {
+      throw new BadRequestException(
+        'A data de nascimento do autor não pode ser menor que a data atual',
+      );
+    }
   }
 }
