@@ -22,7 +22,7 @@ export class AutorDto {
 
   @IsDateString()
   @IsOptional()
-  dataNascimento: Date;
+  dataNascimento: Date | string;
 
   @IsEnum(GeneroEnum)
   @IsOptional()
