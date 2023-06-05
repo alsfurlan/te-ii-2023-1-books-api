@@ -5,8 +5,11 @@ import {
   IsOptional,
   IsString,
   IsUUID,
+  ValidateNested,
 } from 'class-validator';
 import { GeneroEnum } from './genero.enum';
+import { NacionalidadeDto } from 'src/nacionalidade/nacionalidade.dto';
+import { Type } from 'class-transformer';
 
 export class AutorDto {
   @IsUUID()
@@ -24,4 +27,9 @@ export class AutorDto {
   @IsEnum(GeneroEnum)
   @IsOptional()
   genero: GeneroEnum;
+
+  @IsOptional()
+  @Type(() => NacionalidadeDto)
+  @ValidateNested()
+  nacionalidade: NacionalidadeDto;
 }
