@@ -6,7 +6,7 @@ import {
 import { AutorEntity } from './autor.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { AutorDto } from './autor-dto';
+import { AutorDto } from './autor.dto';
 
 @Injectable()
 export class AutorService {

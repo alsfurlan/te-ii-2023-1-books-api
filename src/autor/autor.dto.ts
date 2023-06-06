@@ -8,13 +8,13 @@ import {
   ValidateNested,
 } from 'class-validator';
 import { GeneroEnum } from './genero.enum';
-import { NacionalidadeDto } from 'src/nacionalidade/nacionalidade.dto';
 import { Type } from 'class-transformer';
+import { NacionalidadeDto } from 'src/nacionalidade/nacionalidade.dto';
 
 export class AutorDto {
   @IsUUID()
   @IsOptional()
-  id: string;
+  id?: string;
 
   @IsString()
   @IsNotEmpty()
@@ -22,14 +22,14 @@ export class AutorDto {
 
   @IsDateString()
   @IsOptional()
-  dataNascimento: Date | string;
+  dataNascimento?: Date | string; 
 
   @IsEnum(GeneroEnum)
   @IsOptional()
-  genero: GeneroEnum;
-
+  genero?: GeneroEnum;
+  
   @IsOptional()
   @Type(() => NacionalidadeDto)
   @ValidateNested()
-  nacionalidade: NacionalidadeDto;
+  nacionalidade?: NacionalidadeDto;
 }

@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { AutorService } from './autor.service';
 import { AutorEntity } from './autor.entity';
-import { AutorDto } from './autor-dto';
+import { AutorDto } from './autor.dto';
 
 @Controller('autores')
 export class AutorController {
