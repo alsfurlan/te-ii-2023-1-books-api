@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "934426ed-1423-4faf-b198-cf1753c4c763",
+		"name": "Livros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/livros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Romeu e Julieta\",\r\n    \"subtitulo\": null,\r\n    \"dataLancamento\": \"2000-01-01\",\r\n    \"genero\": \"ROMANCE\",\r\n    \"autores\": [\r\n        {\r\n            \"id\": \"2901f4b1-fe9d-4455-b074-e8e2a83d865c\",\r\n            \"nome\": \"William Sheaksphere\",\r\n            \"dataNascimento\": null,\r\n            \"genero\": \"I\",\r\n            \"nacionalidade\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/livros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"livros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/livros - regra 1 - livro existente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Romeu e Julieta\",\r\n    \"subtitulo\": null,\r\n    \"dataLancamento\": \"2000-01-01\",\r\n    \"genero\": \"ROMANCE\",\r\n    \"autores\": [\r\n        {\r\n            \"id\": \"2901f4b1-fe9d-4455-b074-e8e2a83d865c\",\r\n            \"nome\": \"William Sheaksphere\",\r\n            \"dataNascimento\": null,\r\n            \"genero\": \"I\",\r\n            \"nacionalidade\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/livros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"livros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/livros - regra 2 - data atual",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Romeu e Julieta 3\",\r\n    \"subtitulo\": null,\r\n    \"dataLancamento\": \"2030-01-01\",\r\n    \"genero\": \"ROMANCE\",\r\n    \"autores\": [\r\n        {\r\n            \"id\": \"2901f4b1-fe9d-4455-b074-e8e2a83d865c\",\r\n            \"nome\": \"William Sheaksphere\",\r\n            \"dataNascimento\": null,\r\n            \"genero\": \"I\",\r\n            \"nacionalidade\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/livros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"livros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/livros/id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Romeu e Julieta 2\",\r\n    \"subtitulo\": null,\r\n    \"dataLancamento\": \"2000-01-01\",\r\n    \"genero\": \"ROMANCE\",\r\n    \"autores\": [\r\n        {\r\n            \"id\": \"2901f4b1-fe9d-4455-b074-e8e2a83d865c\",\r\n            \"nome\": \"William Sheaksphere\",\r\n            \"dataNascimento\": null,\r\n            \"genero\": \"I\",\r\n            \"nacionalidade\": null\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/livros/71656b25-ebb2-45b0-bc66-e09f7869abfe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"livros",
+						"71656b25-ebb2-45b0-bc66-e09f7869abfe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/livros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/livros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"livros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/livros/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/livros/09538e8b-4783-4554-8416-07d6da5a0e00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"livros",
+						"09538e8b-4783-4554-8416-07d6da5a0e00"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/livros/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/livros/09538e8b-4783-4554-8416-07d6da5a0e00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"livros",
+						"09538e8b-4783-4554-8416-07d6da5a0e00"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

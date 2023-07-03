@@ -2,11 +2,13 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { GeneroEnum } from './genero.enum';
 import { NacionalidadeEntity } from 'src/nacionalidade/nacionalidade.entity';
+import { LivroEntity } from 'src/livro/livro.entity';
 
 @Entity({ name: 'autores' })
 export class AutorEntity {
@@ -38,4 +40,7 @@ export class AutorEntity {
     referencedColumnName: 'id',
   })
   nacionalidade: NacionalidadeEntity;
+
+  @ManyToMany(() => LivroEntity, (livro) => livro.autores, { nullable: false })
+  livros: LivroEntity[];
 }
